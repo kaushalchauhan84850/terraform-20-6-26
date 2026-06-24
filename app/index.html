@@ -3,86 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps CI/CD Test</title>
+<title>DevOps CI/CD Pipeline Dashboard</title>
+
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-text-align:center;
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #0f172a, #1e293b);
+color: white;
+text-align: center;
 }
-.container{
-padding:80px 20px;
+
+.container {
+padding: 60px 20px;
 }
-.card-container{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
-margin-top:40px;
+
+h1 {
+margin-bottom: 10px;
 }
-.card{
-background:rgba(255,255,255,.08);
-padding:20px;
-width:220px;
-border-radius:10px;
+
+h2 {
+font-weight: normal;
+color: #cbd5e1;
+margin-bottom: 40px;
 }
-.success{
-color:#22c55e;
-font-size:24px;
-font-weight:bold;
-margin-top:40px;
+
+/* Cards */
+.card-container {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 20px;
 }
-button{
-padding:15px 25px;
-font-size:18px;
-border:none;
-border-radius:10px;
-margin-top:20px;
+
+.card {
+background: rgba(255, 255, 255, 0.08);
+padding: 20px;
+width: 220px;
+border-radius: 12px;
+transition: transform 0.3s, background 0.3s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+background: rgba(255, 255, 255, 0.15);
+}
+
+.card h3 {
+margin-bottom: 10px;
+color: #38bdf8;
+}
+
+/* Status Box */
+.status-box {
+margin-top: 40px;
+padding: 20px;
+display: inline-block;
+border-radius: 12px;
+background: rgba(255,255,255,0.08);
+min-width: 280px;
+}
+
+.status {
+font-size: 20px;
+font-weight: bold;
+margin-top: 10px;
+}
+
+/* Button */
+button {
+padding: 15px 25px;
+font-size: 16px;
+border: none;
+border-radius: 10px;
+margin-top: 20px;
+cursor: pointer;
+background: #2563eb;
+color: white;
+transition: 0.3s;
+}
+
+button:hover {
+background: #1d4ed8;
+}
+
+/* Success / Failure */
+.success {
+color: #22c55e;
+}
+
+.failed {
+color: #ef4444;
 }
 </style>
 </head>
+
 <body>
+
 <div class="container">
-<h1>GCP DevOps Project</h1>
-<h2>Terraform + Docker + GitHub Actions + Cloud Run</h2>
+
+<h1>🚀 GCP DevOps CI/CD Dashboard</h1>
+<h2>Terraform • Docker • GitHub Actions • Cloud Run</h2>
+
+<!-- DevOps Cards -->
 <div class="card-container">
+
 <div class="card">
 <h3>Terraform</h3>
 <p>Infrastructure as Code</p>
 </div>
+
 <div class="card">
 <h3>GitHub Actions</h3>
 <p>CI/CD Automation</p>
 </div>
+
 <div class="card">
 <h3>Docker</h3>
-<p>Containerized Deployment</p>
+<p>Containerization</p>
 </div>
+
 <div class="card">
 <h3>Cloud Run</h3>
-<p>Serverless Hosting</p>
+<p>Serverless Deployment</p>
 </div>
-</div>
-  const deployStatusDiv = document.querySelector('.deployment-status');
-  
-  if (deployStatusDiv.classList.contains('success')) {
-      // Show success message logic
-      console.log("Deployment Successful");
-  } else {
-      // Show failure message logic
-      console.log("Deployment Failed");
-  }
-<p>
-Infrastructure Provisioned by Terraform and this is prod inviroment for test and my name is kaushal <br>
-Container Built by Docker and it works<br>
-Deployment Automated by GitHub Actions
-</p>
-<button>
-CI/CD Pipeline Completed Successfully  
-</button>
-</div>
-</body>
-</html> 
 
+</div>
+
+<!-- Description -->
+<p style="margin-top:40px; color:#cbd5e1;">
+Infrastructure provisioned using Terraform.  
+Application containerized using Docker.  
+Deployment fully automated using GitHub Actions on Google Cloud Run.
+</p>
+
+<!-- Status Panel -->
+<div class="status-box">
+<h3>Deployment Status</h3>
+<div id="status" class="status">Pending ⏳</div>
+</div>
+
+<br>
+
+<button onclick="checkDeployment()">
+Check CI/CD Pipeline
+</button>
+
+</div>
+
+<script>
+function checkDeployment() {
+
+const status = document.getElementById("status");
+
+// Simulated CI/CD result
+const success = true;
+
+if (success) {
+status.innerHTML = "Deployment Successful 🚀";
+status.className = "status success";
+} else {
+status.innerHTML = "Deployment Failed ❌";
+status.className = "status failed";
+}
+
+console.log("CI/CD check executed");
+}
+</script>
+
+</body>
+</html>
