@@ -47,5 +47,6 @@ jobs:
             --image us-central1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/app-repo/demo-app:${{ github.sha }} \
             --region us-central1 \
             --platform managed \
+            --port 8080 \
             --allow-unauthenticated
 
