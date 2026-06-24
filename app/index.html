@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps CI/CD Demo</title>
+<title>DevOps CI/CD Test</title>
 <style>
 body{
 margin:0;
@@ -45,7 +45,7 @@ margin-top:20px;
 </head>
 <body>
 <div class="container">
-<h1>  GCP DevOps Project</h1>
+<h1>GCP DevOps Project</h1>
 <h2>Terraform + Docker + GitHub Actions + Cloud Run</h2>
 <div class="card-container">
 <div class="card">
@@ -65,9 +65,15 @@ margin-top:20px;
 <p>Serverless Hosting</p>
 </div>
 </div>
-<div class="success">
-✅ Deployment Successful
-</div>
+  const deployStatusDiv = document.querySelector('.deployment-status');
+  
+  if (deployStatusDiv.classList.contains('success')) {
+      // Show success message logic
+      console.log("Deployment Successful");
+  } else {
+      // Show failure message logic
+      console.log("Deployment Failed");
+  }
 <p>
 Infrastructure Provisioned by Terraform and this is prod inviroment for test and my name is kaushal<br>
 Container Built by Docker<br>
